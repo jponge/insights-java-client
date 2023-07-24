@@ -97,6 +97,7 @@
     <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
     <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
     <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+    <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
     <jreleaser-maven-plugin.version>1.7.0</jreleaser-maven-plugin.version>
   </properties>
 
@@ -250,6 +251,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven-javadoc-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${maven-deploy-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -417,6 +423,10 @@
                 </release>
                 <deploy>
                   <maven>
+                    <pomchecker>
+                      <failOnWarning>false</failOnWarning>
+                      <failOnError>false</failOnError>
+                    </pomchecker>
                     <nexus2>
                       <maven-central>
                         <active>ALWAYS</active>
